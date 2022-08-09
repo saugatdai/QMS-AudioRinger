@@ -6,6 +6,7 @@ import * as path from 'path';
 import TokenCallingState from '../../../src/UseCases/TokenCallingComponent/TokenCallingState';
 import TokenCallingStateManagerSingleton from '../../../src/UseCases/TokenCallingComponent/TokenCallingStateManagerSingleton';
 
+
 export default class AudioRingerSingleton {
   private static instance = new AudioRingerSingleton();
 
@@ -64,6 +65,14 @@ export default class AudioRingerSingleton {
     audio.play();
 
     this.isPlaying = true;
+
+    const toPublish = {
+      tokenNumber: tokenCallingState.nextToken.tokenNumber.toString(),
+      tokenCategory: tokenCallingState.nextToken.tokenCategory,
+      counter: tokenCallingState.operator.getCounter().toString()
+    }
+
+    EventManagerSingleton.getInstance().emit(constants.DMD_PUBLISH,toPublish);
 
     let index = 1;
     audio.onended = () => {
