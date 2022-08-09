@@ -2,10 +2,9 @@ import * as path from 'path';
 
 import { ipcRenderer } from 'electron';
 
-import './Helpers/mqttInit';
-import './Helpers/mqttClient';
 import { Plugin } from './interfaces';
 import { callNextAudioPipeline, callAgainPipeline, bypassPipeline, randomCallPipeline, tokenForwardPipeline } from './PipelineExecutors';
+
 
 ipcRenderer.invoke("CreateNewWindow", {
   height: 400,

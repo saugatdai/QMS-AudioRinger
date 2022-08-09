@@ -1,7 +1,7 @@
 {
-    "name": "AudioDMD",
+    "name": "Audio Ringer",
     "version": "1.0.0",
     "minCoreVersion": "1.0.0",
-    "pluginId": 5,
+    "pluginId": 1,
     "pluginValidatorId": "f44b83e9307dce81f967d0d5fafcfef5"
 }
